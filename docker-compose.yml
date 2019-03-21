@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  niobio:
+    container_name: "niobio"
+    build: .
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - ".:/var/www/"
+    command: >
+        composer install
+        php -S localhost:8000 -t index.php
